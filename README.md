@@ -1,6 +1,6 @@
 # Angular App
 
-An Angular Single Page Application (SPA) using the [An API of Ice and Fire](https://anapioficeandfire.com/) to explore characters, houses, and books from the Game of Thrones universe.
+An Angular Single Page Application (SPA) using the [An API of Ice and Fire](https://anapioficeandfire.com/) to explore books.
 
 ## 🔧 Features
 
