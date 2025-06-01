@@ -1,0 +1,59 @@
+
+<div class="container mt-4">
+  <h2>Listing</h2>
+
+  <!-- 🔍 Search Input -->
+  <div class="mb-3">
+    <input 
+      type="text" 
+      class="form-control" 
+      placeholder="Search books..." 
+      [(ngModel)]="searchKey"
+      (input)="updateVisibleBooks()"
+    />
+  </div>
+
+  <!-- 💬 Book Cards -->
+  <div class="row" *ngIf="books.length > 0; else noResults">
+    <div class="col-md-4 mb-3" *ngFor="let book of books">
+      <div class="card d-flex flex-row align-items-center p-2">
+        <a
+          [routerLink]="['/detail', book.id]" 
+          [queryParams]="{ from: 'list' }" 
+          class="flex-grow-1 text-decoration-none text-dark"
+        >
+          <div class="card-body">
+            <div style="width: 100%; max-width: 250px;">
+              <h5 class="card-title ellipsis">{{ book.name || 'Unknown' }}</h5>
+            </div>
+            <p class="card-text">Publisher: {{ book.publisher || 'N/A' }}</p>
+            <p class="card-text">Release: {{ book.released | date: 'longDate' }}</p>
+          </div>
+        </a>
+
+        <button 
+          (click)="toggleFavorite(book.id!)" 
+          class="btn btn-link p-0 me-2" 
+          [attr.aria-label]="'Favorite ' + book.name"
+        >
+          <i class="fa-heart"
+             [class.far]="!isFavorite(book.id!)"
+             [class.fas]="isFavorite(book.id!)"
+             style="color: red; font-size: 1.3rem;">
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!--For No Results -->
+  <ng-template #noResults>
+    <p>No matching books found.</p>
+  </ng-template>
+
+  <!-- Pagination Controls -->
+  <div class="d-flex justify-content-between mt-4 mb-5">
+    <button class="btn btn-secondary" (click)="prevPage()" [disabled]="page === 1">Previous</button>
+    <button class="btn btn-secondary" (click)="nextPage()" [disabled]="endIndex >= filteredCharacters.length">Next</button>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<nav *ngIf="showNavbar" class="navbar navbar-dark bg-dark px-5">
+  <div class="d-flex align-items-center gap-3">
+    <a class="btn btn-outline-light" routerLink="/list" [ngClass]="{ 'btn-light text-dark': activeMenu === 'list', 'btn-outline-light': activeMenu !== 'list' }" >List</a>
+    <a class="btn btn-outline-light" routerLink="/favorites" [ngClass]="{ 'btn-light text-dark': activeMenu === 'favorites', 'btn-outline-light': activeMenu !== 'favorites' }">Favorites</a>
+  </div>
+   <button class="btn btn-danger ms-auto" (click)="onLogout()">Logout</button>
+</nav>
+
+<router-outlet></router-outlet>
+
+<footer class="text-center mt-4 mb-3">
+  <small class="text-muted">
+    Task_FE_Developer by <strong>Htet Htet Aung</strong>
+  </small>
+</footer>

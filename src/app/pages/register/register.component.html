@@ -1,0 +1,13 @@
+<div class="container mt-5" style="max-width: 400px;">
+  <h2>Register</h2>
+  <form (ngSubmit)="onRegister()">
+    <input class="form-control mb-3" [(ngModel)]="username" name="username" placeholder="Username" required>
+    <input class="form-control mb-5" [(ngModel)]="password" name="password" type="password" placeholder="Password" required>
+    <button class="btn btn-success w-100">Register</button>
+  </form>
+  <p class="text-center mt-3">
+    Do you have an account? 
+    <a routerLink="/login" class="text-decoration-underline">Login</a>
+  </p>
+  <div *ngIf="error" class="text-danger mt-2">{{ error }}</div>
+</div>

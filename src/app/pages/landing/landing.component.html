@@ -1,0 +1,10 @@
+<div class="background-img-section text-center text-white py-5">
+  <div class="overlay p-5">
+    <h1 class="display-4">Welcome to Our Book Shop</h1>
+    <p class="lead mt-4">Browse books from the world of Westeros, explore their details, and save your favorites.</p>
+
+    <div class="mt-4" *ngIf="!auth.isLoggedIn()">
+      <a routerLink="/register" class="btn btn-success btn-lg">Register</a>
+    </div>
+  </div>
+</div>

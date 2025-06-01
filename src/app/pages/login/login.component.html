@@ -1,0 +1,13 @@
+<div class="container mt-5" style="max-width: 400px;">
+  <h2>Login</h2>
+  <form (submit)="onLogin()" class="mt-5">
+    <input class="form-control mb-3" [(ngModel)]="username" name="username" placeholder="Username" required>
+    <input class="form-control mb-5" [(ngModel)]="password" name="password" type="password" placeholder="Password" required>
+    <button class="btn btn-primary w-100">Login</button>
+  </form>
+  <p class="text-center mt-3">
+    Don't have an account? 
+    <a routerLink="/register" class="text-decoration-underline">Register</a>
+  </p>
+  <div *ngIf="error" class="text-danger mt-2">Invalid credentials</div>
+</div>

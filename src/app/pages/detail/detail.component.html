@@ -1,0 +1,12 @@
+<div class="container mt-4">
+  <h2>{{ book.name || 'Unknown Book' }}</h2>
+  <ul class="list-group">
+    <li class="list-group-item"><strong>Publisher:</strong> {{ book.publisher }}</li>
+    <li class="list-group-item"><strong>Country:</strong> {{ book.country }}</li>
+    <li class="list-group-item"><strong>MediaType:</strong> {{ book.mediaType }}</li>
+    <li class="list-group-item"><strong>Release:</strong> {{ book.released | date: 'longDate'}}</li>
+    <li class="list-group-item"><strong>Number of Pages:</strong> {{ book.numberOfPages }}</li>
+    <li class="list-group-item"><strong>Author:</strong> {{ book.authors.join(', ') }}</li>
+  </ul>
+  <a class="btn btn-secondary mt-3" [routerLink]="fromRoute === 'favorites' ? '/favorites' : '/list'">Back to {{ fromRoute === 'favorites' ? 'Favorites' : 'List' }}</a>
+</div>
